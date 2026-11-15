@@ -1,0 +1,602 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Triadi Ramadani | Be Creative</title>
+
+<style>
+:root {
+  --bg: #f0eee7;
+  --black: #171717;
+  --red: #e2382f;
+  --gray: #b8b6af;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--black);
+  font-family: Arial, sans-serif;
+}
+
+img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* NAVIGATION */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  border-bottom: 2px solid var(--black);
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--black);
+  margin-left: 15px;
+}
+
+/* HERO */
+
+.hero {
+  padding: 70px 0 35px;
+}
+
+.label {
+  font-family: monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.hero h1 {
+  font-size: clamp(55px, 12vw, 145px);
+  line-height: .8;
+  letter-spacing: -9px;
+  margin: 35px 0;
+  font-weight: 900;
+}
+
+.hero h1 span {
+  color: var(--red);
+  display: block;
+}
+
+.hero-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 25px;
+  flex-wrap: wrap;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  padding: 18px 0;
+}
+
+.hero-info p {
+  max-width: 420px;
+  line-height: 1.6;
+}
+
+.hero-image {
+  margin-top: 30px;
+  height: 350px;
+  background: var(--black);
+}
+
+.hero-image img {
+  height: 100%;
+}
+
+/* SECTIONS */
+
+section {
+  padding: 75px 0;
+}
+
+.section-number {
+  color: var(--red);
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+h2 {
+  font-size: clamp(40px, 7vw, 80px);
+  line-height: .9;
+  letter-spacing: -5px;
+  margin: 20px 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.about-text {
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.about-text strong {
+  background: var(--red);
+  color: white;
+  padding: 2px 5px;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.fact {
+  border: 1px solid var(--black);
+  padding: 20px;
+}
+
+.fact small {
+  display: block;
+  font-family: monospace;
+  color: #777;
+  margin-bottom: 12px;
+}
+
+/* CREATIVE SKILLS */
+
+.skills {
+  background: var(--black);
+  color: var(--bg);
+}
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 35px;
+}
+
+.skill {
+  border: 1px solid #777;
+  padding: 25px;
+  min-height: 190px;
+  transition: .3s;
+}
+
+.skill:hover {
+  background: var(--red);
+}
+
+.skill h3 {
+  font-size: 23px;
+  margin: 35px 0 12px;
+}
+
+.skill p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+/* CREATIVE WORLD */
+
+.creative-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.creative-image {
+  height: 380px;
+}
+
+.creative-image img {
+  height: 100%;
+}
+
+/* GALLERY */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.gallery-item {
+  border: 1px solid var(--black);
+  padding: 10px;
+}
+
+.gallery-item img {
+  height: 210px;
+}
+
+.gallery-item h3 {
+  margin: 15px 0 5px;
+}
+
+.gallery-item p {
+  font-family: monospace;
+  font-size: 11px;
+}
+
+/* MOTTO */
+
+.motto {
+  background: var(--red);
+  color: white;
+  text-align: center;
+}
+
+.motto h2 {
+  font-size: clamp(60px, 13vw, 150px);
+  letter-spacing: -8px;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 25px 0;
+  display: flex;
+  justify-content: space-between;
+  font-family: monospace;
+  font-size: 11px;
+  border-top: 2px solid var(--black);
+  gap: 15px;
+}
+
+@media(max-width:700px) {
+  .hero h1 {
+    letter-spacing: -5px;
+  }
+
+  .about-grid,
+  .creative-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item img {
+    height: 250px;
+  }
+
+  .hero-image {
+    height: 240px;
+  }
+
+  .creative-image {
+    height: 270px;
+  }
+}
+
+@media(max-width:420px) {
+  .skill-grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    font-size: 10px;
+  }
+
+  nav a {
+    margin-left: 7px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="container">
+<nav>
+  <span>TR / ARCHIVE®</span>
+  <div>
+    <a href="#about">ABOUT</a>
+    <a href="#skills">SKILLS</a>
+    <a href="#works">WORKS</a>
+  </div>
+</nav>
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<div class="container hero">
+
+  <div class="label">
+    PERSONAL PROFILE / BANDUNG / 2026
+  </div>
+
+  <h1>
+    TRIADI
+    <span>RAMADANI.</span>
+  </h1>
+
+  <div class="hero-info">
+    <p>
+      A student with a passion for art,
+      design, and creative exploration.
+    </p>
+
+    <p>
+      16 YEARS OLD<br>
+      SMAN 19 BANDUNG<br>
+      CLASS X-J
+    </p>
+  </div>
+
+  <div class="hero-image">
+    <img
+      src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200"
+      alt="Alat tulis dan kertas kreatif">
+  </div>
+
+</div>
+
+<!-- ABOUT -->
+
+<section class="container" id="about">
+
+  <div class="section-number">01 / ABOUT ME</div>
+
+  <div class="about-grid">
+
+    <div>
+      <h2>WHO<br>AM I?</h2>
+
+      <p class="about-text">
+        Halo! Saya <strong>Triadi Ramadani</strong>,
+        seorang pelajar berusia 16 tahun
+        yang saat ini menempuh pendidikan
+        di SMAN 19 Bandung kelas X-J.
+
+        Saya memiliki ketertarikan besar
+        terhadap dunia kreatif, terutama
+        desain grafis, ilustrasi, dan seni visual.
+
+        Bagi saya, kreativitas adalah cara
+        untuk menuangkan ide, bereksperimen,
+        serta menciptakan sesuatu yang
+        memiliki karakter dan makna.
+      </p>
+    </div>
+
+    <div class="facts">
+      <div class="fact">
+        <small>NAME</small>
+        Triadi Ramadani
+      </div>
+
+      <div class="fact">
+        <small>AGE</small>
+        16 Years Old
+      </div>
+
+      <div class="fact">
+        <small>SCHOOL</small>
+        SMAN 19 Bandung
+      </div>
+
+      <div class="fact">
+        <small>CLASS</small>
+        X-J
+      </div>
+
+      <div class="fact">
+        <small>INTEREST</small>
+        Visual Arts
+      </div>
+
+      <div class="fact">
+        <small>PHILOSOPHY</small>
+        Be Creative
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+
+<section class="skills" id="skills">
+
+<div class="container">
+
+  <div class="section-number">02 / CREATIVE SKILLS</div>
+
+  <h2>IDEAS INTO<br>VISUALS.</h2>
+
+  <div class="skill-grid">
+
+    <div class="skill">
+      <small>01 / DESIGN</small>
+      <h3>Graphic Designer</h3>
+      <p>
+        Mengolah tipografi, warna,
+        komposisi, dan layout untuk
+        menciptakan komunikasi visual.
+      </p>
+    </div>
+
+    <div class="skill">
+      <small>02 / ART</small>
+      <h3>Illustrator</h3>
+      <p>
+        Mengeksplorasi bentuk, warna,
+        suasana, dan objek melalui
+        ilustrasi digital.
+      </p>
+    </div>
+
+    <div class="skill">
+      <small>03 / VISUAL</small>
+      <h3>Visual Composition</h3>
+      <p>
+        Menyusun elemen visual dengan
+        memperhatikan keseimbangan
+        dan hierarki.
+      </p>
+    </div>
+
+    <div class="skill">
+      <small>04 / TYPE</small>
+      <h3>Typography</h3>
+      <p>
+        Bereksperimen dengan bentuk
+        huruf, ukuran, jarak,
+        dan karakter tipografi.
+      </p>
+    </div>
+
+    <div class="skill">
+      <small>05 / COLOR</small>
+      <h3>Color Exploration</h3>
+      <p>
+        Mengeksplorasi palet warna,
+        kontras, dan kombinasi
+        warna dalam desain.
+      </p>
+    </div>
+
+    <div class="skill">
+      <small>06 / IDEAS</small>
+      <h3>Creative Thinking</h3>
+      <p>
+        Mengembangkan ide dan
+        mencoba berbagai pendekatan
+        kreatif.
+      </p>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- CREATIVE WORLD -->
+
+<section class="container">
+
+  <div class="section-number">03 / MY CREATIVE WORLD</div>
+
+  <div class="creative-grid">
+
+    <div>
+      <h2>THINK.<br>MAKE.<br>EXPLORE.</h2>
+
+      <p class="about-text">
+        Saya menyukai proses di balik
+        sebuah karya. Mulai dari mencari
+        inspirasi, menentukan konsep,
+        memilih warna, hingga menghasilkan
+        karya visual.
+
+        Saya percaya bahwa setiap eksperimen
+        merupakan kesempatan untuk
+        berkembang dan menemukan
+        identitas kreatif sendiri.
+      </p>
+    </div>
+
+    <div class="creative-image">
+      <img
+        src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=1000"
+        alt="Perlengkapan seni dan palet warna">
+    </div>
+
+  </div>
+</section>
+
+<!-- WORKS -->
+
+<section class="container" id="works">
+
+  <div class="section-number">04 / SELECTED WORKS</div>
+
+  <h2>MADE BY ME.</h2>
+
+  <div class="gallery-grid">
+
+    <div class="gallery-item">
+      <img
+        src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=700"
+        alt="Eksperimen visual abstrak">
+      <h3>Graphic Design</h3>
+      <p>POSTER / LAYOUT / TYPOGRAPHY</p>
+    </div>
+
+    <div class="gallery-item">
+      <img
+        src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=700"
+        alt="Peralatan dan karya seni">
+      <h3>Illustration</h3>
+      <p>DIGITAL ART / DRAWING</p>
+    </div>
+
+    <div class="gallery-item">
+      <img
+        src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?w=700"
+        alt="Buku dan alat kreatif">
+      <h3>Visual Experiments</h3>
+      <p>ART / EXPERIMENT / IDEAS</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- MOTTO -->
+
+<section class="motto">
+  <div class="container">
+    <div class="label">A CREATIVE REMINDER / 005</div>
+
+    <h2>BE<br>CREATIVE.</h2>
+
+    <p>
+      THINK DIFFERENTLY. CREATE FREELY.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer class="container">
+  <span>© 2026 TRIADI RAMADANI</span>
+  <span>DESIGNED WITH CURIOSITY.</span>
+</footer>
+
+</body>
+</html>
